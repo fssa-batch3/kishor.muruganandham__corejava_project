@@ -45,7 +45,7 @@ class PriorityComparator implements Comparator<TaskPriority> {
 
 public class SortTaskUsingPriority {
     public static void main(String[] args) {
-        ArrayList<TaskPriority> arr = new ArrayList<TaskPriority>();
+        ArrayList<TaskPriority> arr = new ArrayList<>();
         arr.add(new TaskPriority(1,"Coding","2022-10-22",2));
         arr.add(new TaskPriority(5,"Product Design","2022-10-01",3));
         arr.add(new TaskPriority(2,"Software Design", "2022-10-07",2));
