@@ -8,16 +8,20 @@ import java.util.Scanner;
 public class ArrayListSort {
 
     public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> arr = new ArrayList<>();
         int n = sc.nextInt();
         for (int i = 0; i < n; i++) {
             arr.add(sc.nextInt());
         }
 
+        System.out.println("Array List Before Sorting: " + arr);
+        ArrayList<Integer> sortedArr = sortArrayList(arr);
+        System.out.println("Array List After Sorting: " + sortedArr);
+    }
 
-        System.out.println("Array List Before Sorting : " + arr);
+    public static ArrayList<Integer> sortArrayList(ArrayList<Integer> arr) {
         Collections.sort(arr);
-        System.out.println("Array List After Sorting : " + arr);
+        return arr;
     }
 }

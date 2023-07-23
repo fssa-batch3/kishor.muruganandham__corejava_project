@@ -31,4 +31,11 @@ public class ValidateUser {
     }
 
 
+    public ArrayList<ValidateUser> getArr() {
+        return userList;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
 }
