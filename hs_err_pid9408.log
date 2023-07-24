@@ -1,0 +1,352 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff9493ec194, pid=9408, tid=19424
+#
+# JRE version: Java(TM) SE Runtime Environment (17.0.7+8) (build 17.0.7+8-LTS-224)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (17.0.7+8-LTS-224, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [cyjagent.dll+0xc194]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:57681,suspend=y,server=n -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Users\KishorMuruganandham\AppData\Local\JetBrains\IdeaIC2023.1\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 -agentpath:C:\Program Files\Palo Alto Networks\Traps\cyjagent.dll com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 day11.TaskDAOTest,testCreateTask
+
+Host: Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3031)
+Time: Mon Jul 24 14:12:23 2023 India Standard Time elapsed time: 400.737026 seconds (0d 0h 6m 40s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001bf5f25bed0):  JavaThread "main" [_thread_in_native, id=19424, stack(0x0000008294c00000,0x0000008294d00000)]
+
+Stack: [0x0000008294c00000,0x0000008294d00000],  sp=0x0000008294cf8660,  free space=993k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [cyjagent.dll+0xc194]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Class;+0 java.base@17.0.7
+J 1007 c1 java.lang.Class.forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class; java.base@17.0.7 (47 bytes) @ 0x000001bf6878ec44 [0x000001bf6878e880+0x00000000000003c4]
+j  jdk.internal.access.SharedSecrets.getJavaUtilCollectionAccess()Ljdk/internal/access/JavaUtilCollectionAccess;+12 java.base@17.0.7
+j  java.util.stream.ReferencePipeline.toList()Ljava/util/List;+0 java.base@17.0.7
+j  java.util.ResourceBundle$ResourceBundleControlProviderHolder.lambda$static$0()Ljava/util/List;+21 java.base@17.0.7
+j  java.util.ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$318+0x0000000800c6d3c0.run()Ljava/lang/Object;+0 java.base@17.0.7
+j  java.security.AccessController.executePrivileged(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;Ljava/lang/Class;)Ljava/lang/Object;+29 java.base@17.0.7
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;+5 java.base@17.0.7
+j  java.util.ResourceBundle$ResourceBundleControlProviderHolder.<clinit>()V+11 java.base@17.0.7
+v  ~StubRoutines::call_stub
+j  java.util.ResourceBundle.getDefaultControl(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle$Control;+14 java.base@17.0.7
+j  java.util.ResourceBundle.getDefaultControl(Ljava/lang/Class;Ljava/lang/String;)Ljava/util/ResourceBundle$Control;+5 java.base@17.0.7
+j  java.util.ResourceBundle.getBundle(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/ClassLoader;)Ljava/util/ResourceBundle;+22 java.base@17.0.7
+j  com.mysql.cj.Messages.<clinit>()V+19
+v  ~StubRoutines::call_stub
+j  com.mysql.cj.Constants.<clinit>()V+8
+v  ~StubRoutines::call_stub
+j  com.mysql.cj.util.Util.<clinit>()V+9
+v  ~StubRoutines::call_stub
+j  com.mysql.cj.conf.ConnectionUrl$Type.getImplementingInstance(Lcom/mysql/cj/conf/ConnectionUrlParser;Ljava/util/Properties;)Lcom/mysql/cj/conf/ConnectionUrl;+33
+j  com.mysql.cj.conf.ConnectionUrl$Type.getConnectionUrlInstance(Lcom/mysql/cj/conf/ConnectionUrlParser;Ljava/util/Properties;)Lcom/mysql/cj/conf/ConnectionUrl;+167
+j  com.mysql.cj.conf.ConnectionUrl.getConnectionUrlInstance(Ljava/lang/String;Ljava/util/Properties;)Lcom/mysql/cj/conf/ConnectionUrl;+102
+j  com.mysql.cj.jdbc.NonRegisteringDriver.connect(Ljava/lang/String;Ljava/util/Properties;)Ljava/sql/Connection;+11
+j  java.sql.DriverManager.getConnection(Ljava/lang/String;Ljava/util/Properties;Ljava/lang/Class;)Ljava/sql/Connection;+131 java.sql@17.0.7
+j  java.sql.DriverManager.getConnection(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection;+37 java.sql@17.0.7
+j  day11.practice.TaskDAO.createTask(Lday11/practice/Task;)V+6
+j  day11.TaskDAOTest.lambda$testCreateTask$0(Lday11/practice/TaskDAO;Lday11/practice/Task;)V+2
+j  day11.TaskDAOTest$$Lambda$314+0x0000000800ca36c8.execute()V+8
+j  org.junit.jupiter.api.AssertThrows.assertThrows(Ljava/lang/Class;Lorg/junit/jupiter/api/function/Executable;Ljava/lang/Object;)Ljava/lang/Throwable;+1
+j  org.junit.jupiter.api.AssertThrows.assertThrows(Ljava/lang/Class;Lorg/junit/jupiter/api/function/Executable;)Ljava/lang/Throwable;+3
+j  org.junit.jupiter.api.Assertions.assertThrows(Ljava/lang/Class;Lorg/junit/jupiter/api/function/Executable;)Ljava/lang/Throwable;+2
+j  day11.TaskDAOTest.testCreateTask()V+30
+v  ~StubRoutines::call_stub
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0 java.base@17.0.7
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+133 java.base@17.0.7
+j  jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6 java.base@17.0.7
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+59 java.base@17.0.7
+j  org.junit.platform.commons.util.ReflectionUtils.invokeMethod(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+41
+j  org.junit.jupiter.engine.execution.MethodInvocation.proceed()Ljava/lang/Object;+16
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed()Ljava/lang/Object;+8
+j  org.junit.jupiter.engine.extension.TimeoutExtension.intercept(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/TimeoutDuration;Lorg/junit/jupiter/engine/extension/TimeoutExtension$TimeoutProvider;)Ljava/lang/Object;+28
+j  org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/TimeoutExtension$TimeoutProvider;)Ljava/lang/Object;+31
+j  org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)V+9
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor$$Lambda$155+0x0000000800c383f0.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)V+5
+j  org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(Lorg/junit/jupiter/engine/execution/ExecutableInvoker$ReflectiveInterceptorCall$VoidMethodInterceptorCall;Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)Ljava/lang/Void;+6
+j  org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall$$Lambda$156+0x0000000800c38800.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;)Ljava/lang/Object;+9
+j  org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(Lorg/junit/jupiter/engine/execution/ExecutableInvoker$ReflectiveInterceptorCall;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+6
+j  org.junit.jupiter.engine.execution.ExecutableInvoker$$Lambda$290+0x0000000800c9eb08.apply(Lorg/junit/jupiter/api/extension/InvocationInterceptor;Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+14
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed()Ljava/lang/Object;+12
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;)Ljava/lang/Object;+1
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/engine/execution/InvocationInterceptorChain$InterceptorCall;Ljava/util/List;)Ljava/lang/Object;+24
+j  org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/InvocationInterceptorChain$InterceptorCall;)Ljava/lang/Object;+31
+j  org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(Lorg/junit/jupiter/api/extension/InvocationInterceptor$Invocation;Lorg/junit/jupiter/api/extension/ReflectiveInvocationContext;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/ExecutableInvoker$ReflectiveInterceptorCall;)Ljava/lang/Object;+15
+j  org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(Ljava/lang/reflect/Method;Ljava/lang/Object;Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/extension/ExtensionRegistry;Lorg/junit/jupiter/engine/execution/ExecutableInvoker$ReflectiveInterceptorCall;)Ljava/lang/Object;+56
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;)V+28
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor$$Lambda$301+0x0000000800ca0ce8.execute()V+12
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$DynamicTestExecutor;)V+21
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$DynamicTestExecutor;)Lorg/junit/jupiter/engine/execution/JupiterEngineExecutionContext;+44
+j  org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$DynamicTestExecutor;)Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5()V+79
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$237+0x0000000800c92780.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$236+0x0000000800c92560.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$235+0x0000000800c92148.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda$241+0x0000000800c93270.accept(Ljava/lang/Object;)V+4
+j  java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V+46 java.base@17.0.7
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(Ljava/util/List;)V+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5()V+116
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$237+0x0000000800c92780.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$236+0x0000000800c92560.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$235+0x0000000800c92148.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService$$Lambda$241+0x0000000800c93270.accept(Ljava/lang/Object;)V+4
+j  java.util.ArrayList.forEach(Ljava/util/function/Consumer;)V+46 java.base@17.0.7
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(Ljava/util/List;)V+6
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5()V+116
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$237+0x0000000800c92780.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+15
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$236+0x0000000800c92560.invoke(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;)V+5
+j  org.junit.platform.engine.support.hierarchical.Node.around(Lorg/junit/platform/engine/support/hierarchical/EngineExecutionContext;Lorg/junit/platform/engine/support/hierarchical/Node$Invocation;)V+2
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8()V+14
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask$$Lambda$235+0x0000000800c92148.execute()V+4
+j  org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(Lorg/junit/platform/engine/support/hierarchical/ThrowableCollector$Executable;)V+1
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively()V+31
+j  org.junit.platform.engine.support.hierarchical.NodeTestTask.execute()V+55
+j  org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(Lorg/junit/platform/engine/support/hierarchical/HierarchicalTestExecutorService$TestTask;)Ljava/util/concurrent/Future;+1
+j  org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute()Ljava/util/concurrent/Future;+74
+j  org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(Lorg/junit/platform/engine/ExecutionRequest;)V+31
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/engine/TestDescriptor;Lorg/junit/platform/engine/EngineExecutionListener;Lorg/junit/platform/engine/ConfigurationParameters;Lorg/junit/platform/engine/TestEngine;)V+24
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/launcher/core/LauncherDiscoveryResult;Lorg/junit/platform/engine/EngineExecutionListener;)V+86
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(Lorg/junit/platform/launcher/core/InternalTestPlan;Lorg/junit/platform/launcher/core/LauncherDiscoveryResult;Lorg/junit/platform/launcher/TestExecutionListener;)V+18
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator$$Lambda$186+0x0000000800c3f818.accept(Ljava/lang/Object;)V+16
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(Lorg/junit/platform/engine/ConfigurationParameters;Lorg/junit/platform/launcher/core/TestExecutionListenerRegistry;Ljava/util/function/Consumer;)V+43
+j  org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(Lorg/junit/platform/launcher/core/InternalTestPlan;[Lorg/junit/platform/launcher/TestExecutionListener;)V+35
+j  org.junit.platform.launcher.core.DefaultLauncher.execute(Lorg/junit/platform/launcher/core/InternalTestPlan;[Lorg/junit/platform/launcher/TestExecutionListener;)V+6
+j  org.junit.platform.launcher.core.DefaultLauncher.execute(Lorg/junit/platform/launcher/LauncherDiscoveryRequest;[Lorg/junit/platform/launcher/TestExecutionListener;)V+33
+j  com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs([Ljava/lang/String;Ljava/lang/String;IZ)I+203
+j  com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(Z)I+17
+j  com.intellij.rt.execution.junit.TestsRepeater.repeat(IZLcom/intellij/rt/execution/junit/TestsRepeater$TestRun;)I+7
+j  com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(Lcom/intellij/rt/junit/IdeaTestRunner;[Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;IZ)I+25
+j  com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart([Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;)I+117
+j  com.intellij.rt.junit.JUnitStarter.main([Ljava/lang/String;)V+97
+v  ~StubRoutines::call_stub
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x0000000000000000
+
+
+Register to memory mapping:
+
+RIP=0x00007ff9493ec194 cyjagent.dll
+RAX=0x0 is NULL
+RBX=0x000001bf5f25c178 points into unknown readable memory: 0x00007ff8f5290660 | 60 06 29 f5 f8 7f 00 00
+RCX=0x0 is NULL
+RDX=0x000001bf5eb13490 points into unknown readable memory: 0x000001bf5f25bed0 | d0 be 25 5f bf 01 00 00
+RSP=0x0000008294cf8660 is pointing into the stack for thread: 0x000001bf5f25bed0
+RBP=0x000001bf685bf8d0 points into unknown readable memory: 0x000001bf684d3d00 | 00 3d 4d 68 bf 01 00 00
+RSI=0x0 is NULL
+RDI=0x000001bf5f25c710 points into unknown readable memory: 0x6974752f6176616a | 6a 61 76 61 2f 75 74 69
+R8 =0x0000008294cf84d8 is pointing into the stack for thread: 0x000001bf5f25bed0
+R9 =0x000001bf685bf8d0 points into unknown readable memory: 0x000001bf684d3d00 | 00 3d 4d 68 bf 01 00 00
+R10=0x0 is NULL
+R11=0x0000000000000246 is an unknown value
+R12=0x000001bf5f25c710 points into unknown readable memory: 0x6974752f6176616a | 6a 61 76 61 2f 75 74 69
+R13=0x000001bf5eb12e90 points into unknown readable memory: 0x0000000000000002 | 02 00 00 00 00 00 00 00
+R14=0x0000008294cf8880 is pointing into the stack for thread: 0x000001bf5f25bed0
+R15=0x0 is NULL
+
+
+Registers:
+RAX=0x0000000000000000, RBX=0x000001bf5f25c178, RCX=0x0000000000000000, RDX=0x000001bf5eb13490
+RSP=0x0000008294cf8660, RBP=0x000001bf685bf8d0, RSI=0x0000000000000000, RDI=0x000001bf5f25c710
+R8 =0x0000008294cf84d8, R9 =0x000001bf685bf8d0, R10=0x0000000000000000, R11=0x0000000000000246
+R12=0x000001bf5f25c710, R13=0x000001bf5eb12e90, R14=0x0000008294cf8880, R15=0x0000000000000000
+RIP=0x00007ff9493ec194, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x0000008294cf8660)
+0x0000008294cf8660:   000001bf5f25c710 000001bf5f25c178
+0x0000008294cf8670:   0000000000000000 00007ff8f4bf7fba
+0x0000008294cf8680:   0000000000000000 0000000000000000
+0x0000008294cf8690:   00000008004a2850 000001bf685bf8d0
+0x0000008294cf86a0:   0000000000000025 000001bf7f4e91d0
+0x0000008294cf86b0:   000001bf5f2450d0 000001bf5f25bed0
+0x0000008294cf86c0:   0000008294cf88b8 00007ff8f4d13dfc
+0x0000008294cf86d0:   000001bf5f2450d0 000001bf5f25bed0
+0x0000008294cf86e0:   0000000000000000 000001bf5f25bed0
+0x0000008294cf86f0:   000001bf5f25c710 0000000000000000
+0x0000008294cf8700:   000000820000029b 000001bf5f25c410
+0x0000008294cf8710:   0000008294cf8808 0000008294cf8728
+0x0000008294cf8720:   0000000000000000 0000000000000000
+0x0000008294cf8730:   0000000000000000 0000000000000000
+0x0000008294cf8740:   000001bf5eb12e90 000001bf5f25c3a0
+0x0000008294cf8750:   000001bf5f25c740 000001bf5f25c788 
+
+Instructions: (pc=0x00007ff9493ec194)
+0x00007ff9493ec094:   00 00 03 72 2d 44 8b ce 48 8d 05 6d e0 01 00 ba
+0x00007ff9493ec0a4:   2f 00 00 00 4e 8b 0c c8 48 8b 89 90 02 00 00 4c
+0x00007ff9493ec0b4:   8d 05 86 df 01 00 e8 81 50 ff ff 48 8b 0d 1a 39
+0x00007ff9493ec0c4:   02 00 48 3b cb 74 68 f6 81 9c 02 00 00 10 74 5f
+0x00007ff9493ec0d4:   80 b9 99 02 00 00 02 72 56 4c 8b 8c 24 90 00 00
+0x00007ff9493ec0e4:   00 4c 8d 05 54 df 01 00 48 8b 89 90 02 00 00 ba
+0x00007ff9493ec0f4:   31 00 00 00 e8 43 50 ff ff eb 34 49 8b 0f 4c 8b
+0x00007ff9493ec104:   c3 48 8b d6 e8 d3 63 00 00 48 8b 84 24 b0 00 00
+0x00007ff9493ec114:   00 89 18 48 8b 0d 9a 4c 02 00 4c 8b c6 33 d2 ff
+0x00007ff9493ec124:   15 b7 50 01 00 eb 08 a8 02 75 04 c6 47 40 01 b8
+0x00007ff9493ec134:   ff ff ff ff f0 0f c1 47 10 4c 8b b4 24 88 00 00
+0x00007ff9493ec144:   00 83 f8 01 75 42 48 8b 4f 18 48 81 c1 70 01 00
+0x00007ff9493ec154:   00 ff 15 4d 51 01 00 48 8b 0f 48 8b 47 08 48 89
+0x00007ff9493ec164:   08 48 89 41 08 48 8b 4f 18 48 81 c1 70 01 00 00
+0x00007ff9493ec174:   ff 15 36 51 01 00 48 8b 0d 37 4c 02 00 4c 8b c7
+0x00007ff9493ec184:   33 d2 ff 15 54 50 01 00 48 8b 4d 20 48 8b 55 10
+0x00007ff9493ec194:   48 8b 01 48 8b 80 08 01 00 00 ff 15 3c 51 01 00
+0x00007ff9493ec1a4:   85 c0 74 40 48 8b 0d 31 38 02 00 48 8d 15 2a 38
+0x00007ff9493ec1b4:   02 00 48 3b ca 74 2d f6 81 9c 02 00 00 10 74 24
+0x00007ff9493ec1c4:   80 b9 99 02 00 00 03 72 1b 48 8b 89 90 02 00 00
+0x00007ff9493ec1d4:   4c 8d 05 65 de 01 00 ba 15 00 00 00 44 8b c8 e8
+0x00007ff9493ec1e4:   98 4e ff ff 48 8b 6c 24 78 48 8b b4 24 80 00 00
+0x00007ff9493ec1f4:   00 48 83 c4 50 41 5f 5f 5b c3 cc cc 40 57 48 83
+0x00007ff9493ec204:   ec 30 f6 81 78 01 00 00 04 48 8b f9 0f 85 87 02
+0x00007ff9493ec214:   00 00 48 89 5c 24 40 45 33 c9 48 89 6c 24 48 33
+0x00007ff9493ec224:   d2 48 89 74 24 50 48 8b 71 20 45 8d 41 32 48 8b
+0x00007ff9493ec234:   ce 48 8b 06 48 8b 40 08 ff 15 9e 50 01 00 48 8d
+0x00007ff9493ec244:   2d 97 37 02 00 85 c0 74 37 48 8b 0d 8c 37 02 00
+0x00007ff9493ec254:   48 3b cd 74 2b f6 81 9c 02 00 00 10 74 22 80 b9
+0x00007ff9493ec264:   99 02 00 00 02 72 19 48 8b 89 90 02 00 00 ba 11
+0x00007ff9493ec274:   00 00 00 89 44 24 20 44 8d 4a 21 e8 7c dc ff ff
+0x00007ff9493ec284:   48 8b 06 45 33 c9 33 d2 48 8b ce 48 8b 40 08 45 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x000001bf5f25c710 points into unknown readable memory: 0x6974752f6176616a | 6a 61 76 61 2f 75 74 69
+stack at sp + 1 slots: 0x000001bf5f25c178 points into unknown readable memory: 0x00007ff8f5290660 | 60 06 29 f5 f8 7f 00 00
+stack at sp + 2 slots: 0x0 is NULL
+stack at sp + 3 slots: 0x00007ff8f4bf7fba jvm.dll
+stack at sp + 4 slots: 0x0 is NULL
+stack at sp + 5 slots: 0x0 is NULL
+stack at sp + 6 slots: 0x00000008004a2850 is pointing into metadata
+stack at sp + 7 slots: 0x000001bf685bf8d0 points into unknown readable memory: 0x000001bf684d3d00 | 00 3d 4d 68 bf 01 00 00
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001bf00cd1d30, length=14, elements={
+0x000001bf5f25bed0, 0x000001bf7f4ebc50, 0x000001bf7f4ecd40, 0x000001bf7f4f2040,
+0x000001bf7f4f5f10, 0x000001bf7f4fa8d0, 0x000001bf7f4feb60, 0x000001bf7f508530,
+0x000001bf7f50bc70, 0x000001bf7f4bc850, 0x000001bf00b665d0, 0x000001bf00aff720,
+0x000001bf00c1b0e0, 0x000001bf00cf3bd0
+}
+
+Java Threads: ( => current thread )
+=>0x000001bf5f25bed0 JavaThread "main" [_thread_in_native, id=19424, stack(0x0000008294c00000,0x0000008294d00000)]
+  0x000001bf7f4ebc50 JavaThread "Reference Handler" daemon [_thread_blocked, id=24620, stack(0x0000008295300000,0x0000008295400000)]
+  0x000001bf7f4ecd40 JavaThread "Finalizer" daemon [_thread_blocked, id=6524, stack(0x0000008295400000,0x0000008295500000)]
+  0x000001bf7f4f2040 JavaThread "Attach Listener" daemon [_thread_blocked, id=1540, stack(0x0000008295600000,0x0000008295700000)]
+  0x000001bf7f4f5f10 JavaThread "Service Thread" daemon [_thread_blocked, id=5056, stack(0x0000008295700000,0x0000008295800000)]
+  0x000001bf7f4fa8d0 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=17184, stack(0x0000008295800000,0x0000008295900000)]
+  0x000001bf7f4feb60 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=16036, stack(0x0000008295900000,0x0000008295a00000)]
+  0x000001bf7f508530 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=14004, stack(0x0000008295a00000,0x0000008295b00000)]
+  0x000001bf7f50bc70 JavaThread "Sweeper thread" daemon [_thread_blocked, id=25180, stack(0x0000008295b00000,0x0000008295c00000)]
+  0x000001bf7f4bc850 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=7760, stack(0x0000008295c00000,0x0000008295d00000)]
+  0x000001bf00b665d0 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=25084, stack(0x0000008295e00000,0x0000008295f00000)]
+  0x000001bf00aff720 JavaThread "Notification Thread" daemon [_thread_blocked, id=20064, stack(0x0000008296000000,0x0000008296100000)]
+  0x000001bf00c1b0e0 JavaThread "mysql-cj-abandoned-connection-cleanup" daemon [_thread_blocked, id=20040, stack(0x0000008295d00000,0x0000008295e00000)]
+  0x000001bf00cf3bd0 JavaThread "SIGINT handler" daemon [_thread_blocked, id=12360, stack(0x0000008295f00000,0x0000008296000000)]
+
+Other Threads:
+  0x000001bf7f4d72d0 VMThread "VM Thread" [stack: 0x0000008295200000,0x0000008295300000] [id=8496] _threads_hazard_ptr=0x000001bf00cd1d30
+  0x000001bf5f2b5e70 GCTaskThread "GC Thread#0" [stack: 0x0000008294d00000,0x0000008294e00000] [id=10620]
+  0x000001bf5f2c6b30 ConcurrentGCThread "G1 Main Marker" terminated
+  0x000001bf5f2c90c0 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000008294f00000,0x0000008295000000] [id=1328]
+  0x000001bf5f30d870 ConcurrentGCThread "G1 Refine#0" terminated
+  0x000001bf5f30e290 ConcurrentGCThread "G1 Service" terminated
+
+Threads with active compile tasks:
+
+VM state: at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001bf5f258050] Threads_lock - owner thread: 0x000001bf7f4d72d0
+[0x000001bf5f2575a0] Heap_lock - owner thread: 0x000001bf00cf3bd0
+
+Heap address: 0x0000000081400000, size: 2028 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000800000000-0x0000000800bd0000-0x0000000800bd0000), size 12386304, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Compressed class space mapped at: 0x0000000800c00000-0x0000000840c00000, reserved size: 1073741824
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CPUs: 8 total, 8 available
+ Memory: 8109M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (32-bit)
+ Heap Region Size: 1M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 128M
+ Heap Max Capacity: 2028M
+ Pre-touch: Disabled
+ Parallel Workers: 8
+ Concurrent Workers: 2
+ Concurrent Refinement Workers: 8
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 131072K, used 20480K [0x0000000081400000, 0x0000000100000000)
+  region size 1024K, 21 young (21504K), 0 survivors (0K)
+ Metaspace       used 4577K, committed 4736K, reserved 1056768K
+  class space    used 595K, committed 640K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x0000000081400000, 0x0000000081400000, 0x0000000081500000|  0%| F|  |TAMS 0x0000000081400000, 0x0000000081400000| Untracked 
+|   1|0x0000000081500000, 0x0000000081500000, 0x0000000081600000|  0%| F|  |TAMS 0x0000000081500000, 0x0000000081500000| Untracked 
+|   2|0x0000000081600000, 0x0000000081600000, 0x0000000081700000|  0%| F|  |TAMS 0x0000000081600000, 0x0000000081600000| Untracked 
+|   3|0x0000000081700000, 0x0000000081700000, 0x0000000081800000|  0%| F|  |TAMS 0x0000000081700000, 0x0000000081700000| Untracked 
+|   4|0x0000000081800000, 0x0000000081800000, 0x0000000081900000|  0%| F|  |TAMS 0x0000000081800000, 0x0000000081800000| Untracked 
+|   5|0x0000000081900000, 0x0000000081900000, 0x0000000081a00000|  0%| F|  |TAMS 0x0000000081900000, 0x0000000081900000| Untracked 
+|   6|0x0000000081a00000, 0x0000000081a00000, 0x0000000081b00000|  0%| F|  |TAMS 0x0000000081a00000, 0x0000000081a00000| Untracked 
+|   7|0x0000000081b00000, 0x0000000081b00000, 0x0000000081c00000|  0%| F|  |TAMS 0x0000000081b00000, 0x0000000081b00000| Untracked 
+|   8|0x0000000081c00000, 0x0000000081c00000, 0x0000000081d00000|  0%| F|  |TAMS 0x0000000081c00000, 0x0000000081c00000| Untracked 
+|   9|0x0000000081d00000, 0x0000000081d00000, 0x0000000081e00000|  0%| F|  |TAMS 0x0000000081d00000, 0x0000000081d00000| Untracked 
+|  10|0x0000000081e00000, 0x0000000081e00000, 0x0000000081f00000|  0%| F|  |TAMS 0x0000000081e00000, 0x0000000081e00000| Untracked 
+|  11|0x0000000081f00000, 0x0000000081f00000, 0x0000000082000000|  0%| F|  |TAMS 0x0000000081f00000, 0x0000000081f00000| Untracked 
+|  12|0x0000000082000000, 0x0000000082000000, 0x0000000082100000|  0%| F|  |TAMS 0x0000000082000000, 0x0000000082000000| Untracked 
+|  13|0x0000000082100000, 0x0000000082100000, 0x0000000082200000|  0%| F|  |TAMS 0x0000000082100000, 0x0000000082100000| Untracked 
+|  14|0x0000000082200000, 0x0000000082200000, 0x0000000082300000|  0%| F|  |TAMS 0x0000000082200000, 0x0000000082200000| Untracked 
+|  15|0x0000000082300000, 0x0000000082300000, 0x0000000082400000|  0%| F|  |TAMS 0x0000000082300000, 0x0000000082300000| Untracked 
+|  16|0x0000000082400000, 0x0000000082400000, 0x0000000082500000|  0%| F|  |TAMS 0x0000000082400000, 0x0000000082400000| Untracked 
+|  17|0x0000000082500000, 0x0000000082500000, 0x0000000082600000|  0%| F|  |TAMS 0x0000000082500000, 0x0000000082500000| Untracked 
+|  18|0x0000000082600000, 0x0000000082600000, 0x0000000082700000|  0%| F|  |TAMS 0x0000000082600000, 0x0000000082600000| Untracked 
+|  19|0x0000000082700000, 0x0000000082700000, 0x0000000082800000|  0%| F|  |TAMS 0x0000000082700000, 0x0000000082700000| Untracked 
+|  20|0x0000000082800000, 0x0000000082800000, 0x0000000082900000|  0%| F|  |TAMS 0x0000000082800000, 0x0000000082800000| Untracked 
+|  21|0x0000000082900000, 0x0000000082900000, 0x0000000082a00000|  0%| F|  |TAMS 0x0000000082900000, 0x0000000082900000| Untracked 
+|  22|0x0000000082a00000, 0x0000000082a00000, 0x0000000082b00000|  0%| F|  |TAMS 0x0000000082a00000, 0x0000000082a00000| Untracked 
+|  23|0x0000000082b00000, 0x0000000082b00000, 0x0000000082c00000|  0%| F|  |TAMS 0x0000000082b00000, 0x0000000082b00000| Untracked 
+|  24|0x0000000082c00000, 0x0000000082c00000, 0x0000000082d00000|  0%| F|  |TAMS 0x0000000082c00000, 0x0000000082c00000| Untracked 
+|  25|0x0000000082d00000, 0x0000000082d00000, 0x0000000082e00000|  0%| F|  |TAMS 0x0000000082d00000, 0x0000000082d00000| Untracked 
+|  26|0x0000000082e00000, 0x0000000082e00000, 0x0000000082f00000|  0%| F|  |TAMS 0x0000000082e00000, 0x0000000082e00000| Untracked 
+|  27|0x0000000082f00000, 0x0000000082f00000, 0x0000000083000000|  0%| F|  |TAMS 0x0000000082f00000, 0x0000000082f00000| Untracked 
+|  28|0x0000000083000000, 0x0000000083000000, 0x0000000083100000|  0%| F|  |TAMS 0x0000000083000000, 0x0000000083000000| Untracked 
+|  29|0x0000000083100000, 0x0000000083100000, 0x0000000083200000|  0%| F|  |TAMS 0x0000000083100000, 0x0000000083100000| Untracked 
+|  30|0x0000000083200000, 0x0000000083200000, 0x0000000083300000|  0%| F|  |TAMS 0x0000000083200000, 0x0000000083200000| Untracked 
+|  31|0x0000000083300000, 0x0000000083300000, 0x0000000083400000|  0%| F|  |TAMS 0x0000000083300000, 0x0000000083300000| Untracked 
+|  32|0x0000000083400000, 0x0000000083400000, 0x0000000083500000|  0%| F|  |TAMS 0x0000000083400000, 0x0000000083400000| Untracked 
+|  33|0x0000000083500000, 0x0000000083500000, 0x0000000083600000|  0%| F|  |TAMS 0x0000000083500000, 0x0000000083500000| Untracked 

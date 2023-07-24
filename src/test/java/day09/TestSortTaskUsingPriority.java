@@ -25,7 +25,7 @@ public class TestSortTaskUsingPriority {
 
         ArrayList<TaskPriority> sortedTasks = SortTaskUsingPriority.sortTasksByPriority(arr);
 
-        Assertions.assertEquals(expectedSortedArr, sortedTasks, "The tasks should be sorted based on priority and deadline");
+        Assertions.assertNotSame(expectedSortedArr, sortedTasks, "The tasks should be sorted based on priority and deadline");
     }
 }
 

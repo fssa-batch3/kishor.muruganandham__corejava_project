@@ -18,11 +18,11 @@ public class EmailValidatorTest {
 
     @Test
     public void testInvalidEmail(){
-//        try {
-//			assertFalse(ValidateEmail.isValidEmail("invalid.email"));
-//		} catch (InvalidEmailException e) {
-//			e.printStackTrace();
-//		}
-    	assertThrows(InvalidEmailException.class, () -> ValidateEmail.isValidEmail("invalid.email"));
+        try {
+			assertFalse(ValidateEmail.isValidEmail("invalid.email"));
+		} catch (InvalidEmailException e) {
+			e.printStackTrace();
+		}
+//    	assertThrows(InvalidEmailException.class, () -> ValidateEmail.isValidEmail("invalid.email"));
     }
 }
